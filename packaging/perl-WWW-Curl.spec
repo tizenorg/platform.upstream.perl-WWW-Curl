@@ -27,7 +27,7 @@ BuildRequires:  pkgconfig(libcares)
 Requires:  libcurl
 BuildRequires:  perl-Test-Pod-Coverage
 prefix:    %(echo %{_prefix})
-source:    http://search.cpan.org//CPAN/authors/id/S/SZ/SZBALINT/WWW-Curl-4.05.tar.gz
+source:    %{name}-%{version}.tar.bz2
 
 %description
 This module provides a Perl interface to libcurl. It is not intended to be a standalone module
@@ -42,8 +42,8 @@ details, some sample code and the differences between the C API and the Perl one
 #
 
 %prep
-%setup -q -n %{pkgname}-%{version} 
-chmod -R u+w %{_builddir}/%{pkgname}-%{version}
+%setup
+chmod -R u+w %{_builddir}/%{name}-%{version}
 
 %build
 grep -rsl '^#!.*perl' . |
