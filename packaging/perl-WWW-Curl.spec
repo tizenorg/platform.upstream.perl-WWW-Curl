@@ -21,6 +21,8 @@ license:   Artistic
 group:     Applications/CPAN
 url:       http://www.cpan.org
 buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
+BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::ParseXS)
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(libcrypto)
 BuildRequires:  pkgconfig(libcares)
@@ -126,6 +128,3 @@ find %{buildroot}%{_prefix}             \
 %files -f %filelist
 %defattr(-,root,root)
 
-%changelog
-* Thu Dec 4 2008 root@vsltsus103
-- Initial build.
