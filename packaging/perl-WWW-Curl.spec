@@ -28,6 +28,7 @@ Requires:  libcurl
 BuildRequires:  perl-Test-Pod-Coverage
 prefix:    %(echo %{_prefix})
 source:    %{name}-%{version}.tar.bz2
+Source1001: 	perl-WWW-Curl.manifest
 
 %description
 This module provides a Perl interface to libcurl. It is not intended to be a standalone module
@@ -43,6 +44,7 @@ details, some sample code and the differences between the C API and the Perl one
 
 %prep
 %setup
+cp %{SOURCE1001} .
 chmod -R u+w %{_builddir}/%{name}-%{version}
 
 %build
@@ -124,6 +126,7 @@ find %{buildroot}%{_prefix}             \
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %files -f %filelist
+%manifest %{name}.manifest
 %defattr(-,root,root)
 
 %changelog
